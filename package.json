@@ -1,0 +1,19 @@
+{
+  "name": "GoaldenHour",
+  "version": "0.0.1",
+  "description": "",
+  "repository": "N/A",
+  "readme":"N/A",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "devDependencies": {
+    "grunt-steroids": "0.x"
+  },
+  "license": "none",
+  "engines": {
+    "steroids": "3.5.0"
+  }
+}

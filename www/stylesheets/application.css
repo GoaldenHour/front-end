@@ -1,0 +1,4 @@
+/* Application wide non-native CSS rules */
+.hide{
+  display: none;
+}
