@@ -16,6 +16,40 @@ function hideModal() {
   steroids.modal.hide();
 }
 
+// Local notifications + Calendar interactions
+function createNotificationsForToday() {
+  var one_hour = 3600000; // one hour in milliseconds
+  var one_minute = 60000; // one minute in milliseconds
+  var minutes_in_a_day = 1440; // number of minutes in one day
+  var now = new Date();
+  var id = 1;
+  
+  // error function to pass as callback
+  var errorFunc = function() {
+    navigator.navigation.alert("There was an error accessing your calendar. Make sure all permissions are enabled and that a native calendar exists.")
+  }
+  // success function to pass as callback
+  var successFunc = function(current, events) {
+    // if there are no events found
+    if(events.length == 0) {
+      // create local notification
+      window.plugin.notification.local.add({
+        id: id,
+        title: 'Goalden Hour opportunity!',
+        message: 'Start working on your goals!',
+        date: current
+      });
+      id++;
+    } // end if
+  } // end success func
+
+  // find all events in the next 24 hours in one minute intervals
+  for(var i = 0; i < minutes_in_a_day; i++) {
+    var current = now + i * one_minute;
+    window.plugins.calendar.findEvent(null, null, null, current, current + one_hour, successFunc.bind(this, current), errorFunc);
+  } // end for 
+}
+
 
 // Goal vars
 var $goal_list;
@@ -96,10 +130,10 @@ document.addEventListener('deviceready', function () {
   setTimeout(function() {
     window.plugin.notification.local.add({
       id: 1, // id must be present?
-      title: 'Goalden Hour opportunity!',
-      message: 'Start working on your goals!',
+      message: 'test'
     });
   }, 3000);
+  createNotificationsForToday();
   // initializations
   $goal_list = $('#goal_list');
   var goal_table = new Lawnchair({db: 'goaldenhour', name: "goals"}, function(goal_table) {
