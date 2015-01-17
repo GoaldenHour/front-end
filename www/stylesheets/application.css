@@ -2,3 +2,67 @@
 .hide{
   display: none;
 }
+#goal_button{
+  background-color: #3256B1;
+  color: white;
+}
+#goal_list{
+  background-color: #408bca;
+  color: white;
+}
+#goal_add{
+  background-color: #428bca;
+  color: white;
+}
+.goal_item{
+  background-color: #408bca;
+  color: white;
+}
+#task_button{
+  background-color: #F76E00;
+  color: white;
+}
+#task_list{
+  background-color: #FCB300;
+  color: white;
+}
+#task_add{
+  background-color: #FFB300;
+  color: white;
+}
+.task_item{
+  background-color: #FCB300;
+  color: white;
+}
+#deadline_button{
+  background-color: #C12B2D;
+  color: white;
+}
+#deadline_list{
+  background-color: #FC0404;
+  color: white;
+}
+#deadline_add{
+  background-color: #FF0404;
+  color: white;
+}
+.deadline_item{
+  background-color: #FC0404;
+  color: white;
+}
+#leisure_button{
+  background-color: #3D9930;
+  color: white;
+}
+#leisure_list{
+  background-color: #41CF00;
+  color: white;
+}
+#leisure_add{
+  background-color: #44CF00;
+  color: white;
+}
+.leisure_item{
+  background-color: #41CF00;
+  color: white;
+}

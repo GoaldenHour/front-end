@@ -127,13 +127,21 @@ function onAddGoal() {
 
 document.addEventListener('deviceready', function () {
   // test
-  setTimeout(function() {
-    window.plugin.notification.local.add({
-      id: 1, // id must be present?
-      message: 'test'
-    });
-  }, 3000);
-  createNotificationsForToday();
+  // triggered when a notification is executed while using the app (foreground)
+  // on Android this may be triggered even when the app started by clicking a notification
+  // window.plugin.notification.local.ontrigger = function (id, state, json) {
+  //   navigator.notification.alert("You've got a Goalden Hour opportunity now!");
+  // };
+  // setTimeout(function() {
+  //   window.plugin.notification.local.add({
+  //     icon: 'http://goaldenhour.com/img/favicon.png', // needs an icon because nothing is in res/drawable
+  //     id: 1, // id must be present?
+  //     title: 'Test',
+  //     message: 'test'
+  //     //date: new Date() + 60000
+  //   });
+  // }, 3000);
+  //createNotificationsForToday();
   // initializations
   $goal_list = $('#goal_list');
   var goal_table = new Lawnchair({db: 'goaldenhour', name: "goals"}, function(goal_table) {
